@@ -1,0 +1,15 @@
+#products{
+    background-color: azure;
+    padding: 10px;
+
+    display: flex;
+}
+
+.product {
+    flex: 1 1 auto;
+}
+
+#cart{
+    background-color: cornflowerblue;
+    padding: 10px;
+}
