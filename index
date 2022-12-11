@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Agalat kniyot</title>
+    <script type="text/javascript" src="script.js"defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Shopping cart exercise</h2>
+  <div id="products">
+    <div class="product">
+        <span>Milk</span>
+        <button type="button" onclick="addToCart('milk')">Add to cart</button>
+    </div>
+    <div class="product">
+        <span>Wine</span>
+        <button type="button" onclick="addToCart('wine')">Add to cart</button>
+    </div>
+    <div class="product">
+        <span>Water</span>
+        <button type="button" onclick="addToCart('water')">Add to cart</button>
+    </div>
+  </div>
+
+
+  <div id="cart">
+
+  </div>
+
+  <div id="total">
+    <span>Total</span>
+    <span id="total-amount"></span>
+  </div>
+
+
+</body>
+</html>
