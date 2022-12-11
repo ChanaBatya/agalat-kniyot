@@ -1,0 +1,60 @@
+let cart = [];
+let products = [['milk',10],['wine',45],['water',7]];
+let total = 0;
+
+function generateCart(){
+    let cartDiv = document.getElementById('cart')
+    let result = '<ul>';
+    for(let i = 0; i < cart.length; i++){
+        result += createCartItem(cart[i])
+    }
+    result += '</ul>'
+    cartDiv.innerHTML = result
+}
+
+function addToCart(productId) {
+    console.log(productId);
+    cart.push(productId);
+    console.log(cart);
+    let product = getProductById(productId)
+    total += product[1]
+    generateCart();
+    generateTotal()
+}
+
+function createCartItem(productId) {
+    console.log('createCartItem', productId);
+    let product = getProductById(productId)
+    if(!product){ // prooduct
+        return '<li class="error">No such product</li>'
+    }
+    return '<li class="cart-item"><button onclick="removeFromCart(\'' + product[0] + '\')">-</button> '+product[0]+': '+ product[1] + '</li>'
+}
+
+function removeFromCart(productId){
+    const pos = cart.indexOf(productId)
+    if (pos < 0) {
+        return;
+    }
+
+    cart.splice(pos, 1)
+    let product = getProductById(productId)
+    total -= product[1]
+    generateCart()
+    generateTotal()
+}
+
+function generateTotal() {
+    const totalAmount = document.getElementById('total-amount')
+    totalAmount.innerHTML='' + total
+}
+
+function getProductById(productId){
+    for(let i = 0; i < products.length; i++) {
+        if(products[i][0] == productId){
+           return products[i]
+        }
+    }
+
+    return false
+}
